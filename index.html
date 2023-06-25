@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>D4 Language Tool</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            display: flex;
+            background-color: #000000;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @font-face {
+            font-family: 'RuneFont1';
+            src: url('runefonts/col.ttf') format('truetype');
+        }
+
+        .sections {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+        }
+
+        .sectionUpper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+            background-image: url("img/Background/sectionbg.png");
+            background-size: cover;
+        }
+
+        .sectionLower {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+            background-image: url("img/Background/sectionbg.png");
+            background-size: cover;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            width: 100%;
+            height: 45px;
+            background-image: url("img/Background/header.png");
+            color: #a88f00;
+            text-align: center;
+            background-size: cover;
+        }
+
+        .containerUppercase {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+        }
+
+        .containerLowercase {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+        }
+
+
+
+        .containerNumeral {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+        }
+
+        .containerSymbol {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+        }
+
+        .containerUppercase img:hover {
+            cursor: pointer;
+        }
+
+        .containerLowercase img:hover {
+            cursor: pointer;
+        }
+
+        .containerNumeral img:hover {
+            cursor: pointer;
+        }
+
+        .containerSymbol img:hover {
+            cursor: pointer;
+        }
+
+
+        .containerUppercase img {
+            width: 50px;
+            height: 75px;
+            margin: 5px;
+            filter: brightness(100%);
+            filter: invert(0%);
+            border-radius: 5px;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .containerLowercase img {
+            width: 50px;
+            height: 75px;
+            margin: 5px;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .containerNumeral img {
+            width: 50px;
+            height: 75px;
+            margin: 5px;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .containerSymbol img {
+            width: 50px;
+            height: 75px;
+            margin: 5px;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .textbox {
+            margin-top: 50px;
+            width: 450px;
+            height: 100px;
+            background-color: #000000;
+            color: #ffd900;
+            font-size: 14pt;
+        }
+
+        .clearButton {
+            margin-top: 50px;
+            width: 100%;
+            height: 50px;
+            background-color: #272727;
+            color: #FFD700;
+            border: 1px solid #FFD700;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        img {
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        h2 {
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .bottomHeader {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            width: 100%;
+            height: 45px;
+            color: #a88f00;
+            text-align: center;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #a88f00;
+
+        }
+
+        .bottomOptions {
+            color: #a88f00;
+        }
+
+        .contact-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 35px;
+            width: 100%;
+            height: 100%;
+            color: #a88f00;
+            text-align: center;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #a88f00;
+        }
+
+        .containerBottom {
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .containerUppercase img:hover {
+            border: 1px solid #a88f00;
+            border-radius: 5px;
+            -webkit-filter: brightness(150%);
+            filter: brightness(150%);
+        }
+
+        .containerLowercase img:hover {
+            border: 1px solid #a88f00;
+            border-radius: 5px;
+            -webkit-filter: brightness(150%);
+            filter: brightness(150%);
+        }
+
+        .containerNumeral img:hover {
+            border: 1px solid #a88f00;
+            border-radius: 5px;
+            -webkit-filter: brightness(150%);
+            filter: brightness(150%);
+        }
+
+        .containerSymbol img:hover {
+            border: 1px solid #a88f00;
+            border-radius: 5px;
+            -webkit-filter: brightness(150%);
+            filter: brightness(150%);
+
+        }
+
+        .clearButton:hover {
+            -webkit-filter: drop-shadow(0px 0px 5px #a88f00);
+            filter: drop-shadow(0px 0px 5px #a88f00);
+        }
+
+        .textboxRunes {
+            margin-top: 50px;
+            width: 450px;
+            height: 100px;
+            background-color: #000000;
+            color: #ffd900;
+            font-size: 14pt;
+            font-family: 'RuneFont1', sans-serif;
+            letter-spacing: 2px;
+        }
+        h4{
+            color: #ffd900;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="sections">
+        <div class="sectionUpper">
+            <div class="header">
+                <h2>Uppercase</h2>
+            </div>
+            <div class="containerUppercase">
+                <img id="imageA" src="img/Alphabet/UpperCase/A.PNG" onclick="addLetterToTextBox('A')" />
+                <img id="imageB" src="img/Alphabet/UpperCase/B.PNG" onclick="addLetterToTextBox('B')" />
+                <img id="imageC" src="img/Alphabet/UpperCase/C.PNG" onclick="addLetterToTextBox('C')" />
+                <img id="imageD" src="img/Alphabet/UpperCase/D.PNG" onclick="addLetterToTextBox('D')" />
+                <img id="imageE" src="img/Alphabet/UpperCase/E.PNG" onclick="addLetterToTextBox('E')" />
+                <img id="imageF" src="img/Alphabet/UpperCase/F.PNG" onclick="addLetterToTextBox('F')" />
+                <img id="imageG" src="img/Alphabet/UpperCase/G.PNG" onclick="addLetterToTextBox('G')" />
+                <img id="imageH" src="img/Alphabet/UpperCase/H.PNG" onclick="addLetterToTextBox('H')" />
+                <img id="imageI" src="img/Alphabet/UpperCase/I.PNG" onclick="addLetterToTextBox('I')" />
+                <img id="imageJ" src="img/Alphabet/UpperCase/J.PNG" onclick="addLetterToTextBox('J')" />
+                <img id="imageK" src="img/Alphabet/UpperCase/K.PNG" onclick="addLetterToTextBox('K')" />
+                <img id="imageL" src="img/Alphabet/UpperCase/L.PNG" onclick="addLetterToTextBox('L')" />
+                <img id="imageM" src="img/Alphabet/UpperCase/M.PNG" onclick="addLetterToTextBox('M')" />
+            </div>
+            <div class="containerUppercase">
+                <img id="imageN" src="img/Alphabet/UpperCase/N.PNG" onclick="addLetterToTextBox('N')" />
+                <img id="imageO" src="img/Alphabet/UpperCase/O.PNG" onclick="addLetterToTextBox('O')" />
+                <img id="imageP" src="img/Alphabet/UpperCase/P.PNG" onclick="addLetterToTextBox('P')" />
+                <img id="imageQ" src="img/Alphabet/UpperCase/Q.PNG" onclick="addLetterToTextBox('Q')" />
+                <img id="imageR" src="img/Alphabet/UpperCase/R.PNG" onclick="addLetterToTextBox('R')" />
+                <img id="imageS" src="img/Alphabet/UpperCase/S.PNG" onclick="addLetterToTextBox('S')" />
+                <img id="imageT" src="img/Alphabet/UpperCase/T.PNG" onclick="addLetterToTextBox('T')" />
+                <img id="imageU" src="img/Alphabet/UpperCase/U.PNG" onclick="addLetterToTextBox('U')" />
+                <img id="imageV" src="img/Alphabet/UpperCase/V.PNG" onclick="addLetterToTextBox('V')" />
+                <img id="imageW" src="img/Alphabet/UpperCase/W.PNG" onclick="addLetterToTextBox('W')" />
+                <img id="imageX" src="img/Alphabet/UpperCase/X.PNG" onclick="addLetterToTextBox('X')" />
+                <img id="imageY" src="img/Alphabet/UpperCase/Y.PNG" onclick="addLetterToTextBox('Y')" />
+                <img id="imageZ" src="img/Alphabet/UpperCase/Z.PNG" onclick="addLetterToTextBox('Z')" />
+            </div>
+            <div class="header">
+                <h2>Lowercase</h2>
+            </div>
+            <div class="containerLowercase">
+                <img id="imagea" src="img/Alphabet/LowerCase/a.PNG" onclick="addLetterToTextBox('a')" />
+                <img id="imageb" src="img/Alphabet/LowerCase/b.PNG" onclick="addLetterToTextBox('b')" />
+                <img id="imagec" src="img/Alphabet/LowerCase/c.PNG" onclick="addLetterToTextBox('c')" />
+                <img id="imaged" src="img/Alphabet/LowerCase/d.PNG" onclick="addLetterToTextBox('d')" />
+                <img id="imagee" src="img/Alphabet/LowerCase/e.PNG" onclick="addLetterToTextBox('e')" />
+                <img id="imagef" src="img/Alphabet/LowerCase/f.PNG" onclick="addLetterToTextBox('f')" />
+                <img id="imageg" src="img/Alphabet/LowerCase/g.PNG" onclick="addLetterToTextBox('g')" />
+                <img id="imageh" src="img/Alphabet/LowerCase/h.PNG" onclick="addLetterToTextBox('h')" />
+                <img id="imagei" src="img/Alphabet/LowerCase/i.PNG" onclick="addLetterToTextBox('i')" />
+                <img id="imagej" src="img/Alphabet/LowerCase/j.PNG" onclick="addLetterToTextBox('j')" />
+                <img id="imagek" src="img/Alphabet/LowerCase/k.PNG" onclick="addLetterToTextBox('k')" />
+                <img id="imagel" src="img/Alphabet/LowerCase/l.PNG" onclick="addLetterToTextBox('l')" />
+                <img id="imagem" src="img/Alphabet/LowerCase/m.PNG" onclick="addLetterToTextBox('m')" />
+            </div>
+            <div class="containerLowercase">
+                <img id="imagen" src="img/Alphabet/LowerCase/n.PNG" onclick="addLetterToTextBox('n')" />
+                <img id="imageo" src="img/Alphabet/LowerCase/o.PNG" onclick="addLetterToTextBox('o')" />
+                <img id="imagep" src="img/Alphabet/LowerCase/p.PNG" onclick="addLetterToTextBox('p')" />
+                <img id="imageq" src="img/Alphabet/LowerCase/q.PNG" onclick="addLetterToTextBox('q')" />
+                <img id="imager" src="img/Alphabet/LowerCase/r.PNG" onclick="addLetterToTextBox('r')" />
+                <img id="images" src="img/Alphabet/LowerCase/s.PNG" onclick="addLetterToTextBox('s')" />
+                <img id="imaget" src="img/Alphabet/LowerCase/t.PNG" onclick="addLetterToTextBox('t')" />
+                <img id="imageu" src="img/Alphabet/LowerCase/u.PNG" onclick="addLetterToTextBox('u')" />
+                <img id="imagev" src="img/Alphabet/LowerCase/v.PNG" onclick="addLetterToTextBox('v')" />
+                <img id="imagew" src="img/Alphabet/LowerCase/w.PNG" onclick="addLetterToTextBox('w')" />
+                <img id="imagex" src="img/Alphabet/LowerCase/x.PNG" onclick="addLetterToTextBox('x')" />
+                <img id="imagey" src="img/Alphabet/LowerCase/y.PNG" onclick="addLetterToTextBox('y')" />
+                <img id="imagez" src="img/Alphabet/LowerCase/z.PNG" onclick="addLetterToTextBox('z')" />
+            </div>
+        </div>
+        <div class="sectionLower">
+            <div class="header">
+                <h2>Numeral</h2>
+            </div>
+            <div class="containerNumeral">
+                <img id="image0" src="img/Numeral/0.PNG" onclick="addLetterToTextBox('0')" />
+                <img id="image1" src="img/Numeral/1.PNG" onclick="addLetterToTextBox('1')" />
+                <img id="image2" src="img/Numeral/2.PNG" onclick="addLetterToTextBox('2')" />
+                <img id="image3" src="img/Numeral/3.PNG" onclick="addLetterToTextBox('3')" />
+                <img id="image4" src="img/Numeral/4.PNG" onclick="addLetterToTextBox('4')" />
+                <img id="image5" src="img/Numeral/5.PNG" onclick="addLetterToTextBox('5')" />
+                <img id="image6" src="img/Numeral/6.PNG" onclick="addLetterToTextBox('6')" />
+                <img id="image7" src="img/Numeral/7.PNG" onclick="addLetterToTextBox('7')" />
+                <img id="image8" src="img/Numeral/8.PNG" onclick="addLetterToTextBox('8')" />
+                <img id="image9" src="img/Numeral/9.PNG" onclick="addLetterToTextBox('9')" />
+            </div>
+            <div class="header">
+                <h2>Symbol</h2>
+            </div>
+            <div class="containerSymbol">
+                <img id="imageperiod" src="img/Symbol/period.PNG" onclick="addLetterToTextBox('.')" />
+                <img id="imagecomma" src="img/Symbol/comma.PNG" onclick="addLetterToTextBox(',')" />
+                <img id="imagespace" src="img/Symbol/space.PNG" onclick="addLetterToTextBox(' ')" />
+            </div>
+        </div>
+        <div class="containerBottom">
+            <div>
+                <textarea id="myTextBox" class="textbox" spellcheck="false" placeholder="Converted rune show here..."></textarea>
+            </div>
+        </div>
+        <div class="containerBottom">
+            <div>
+                <textarea id="runeTextBox" class="textboxRunes" spellcheck="false"></textarea>
+            </div>
+        </div>
+        <div class="containerBottom">
+            <div>
+                <button class="clearButton button" onclick="clearTextBox()">Clear Textbox</button>
+            </div>
+        </div>
+        <div class="containerBottom">
+            <div class="bottomOptions"><br>
+                <div class="bottomHeader">(Options)</div>
+
+                <input type="checkbox" id="brightenCheckbox" onchange="brightenImages()" />
+                <label for="brightenCheckbox">Brighten Images</label>
+                <br>
+
+                <input type="checkbox" id="invertCheckbox" onchange="invertImages()" />
+                <label for="invertCheckbox">Invert Images</label>
+            </div>
+        </div>
+
+        <div class="contact-card">
+            <div>
+                <h3>Tool Created by Bartons</h3>
+                <h3>Rune Font Created by Chef</h3>
+            </div>
+            <div>
+                Discord: bartons<br>
+                BTag: Bartons#1166<br>
+                Join the <b>D4 - Not Finding A Cow Level</b> Discord server: <a
+                    href="https://discord.gg/d4cowlevel">https://discord.gg/d4cowlevel</a>
+            </div>
+
+        </div>
+        Moo.
+    </div>
+    </div>
+
+
+
+    <script>
+        function addLetterToTextBox(letter) {
+            var textBox = document.getElementById("myTextBox");
+            textBox.value += letter;
+            //Also add the letter to the rune textbox
+            var runeTextBox = document.getElementById("runeTextBox");
+            runeTextBox.value += letter;
+        }
+
+        function clearTextBox() {
+            var textBox = document.getElementById("myTextBox");
+
+            //prompt user if they want to clear the textbox
+            var result = confirm("Are you sure you want to clear the textbox?");
+            if (result) {
+                textBox.value = "";
+                runeTextBox.value = "";
+            }
+        }
+
+        function brightenImages() {
+            var checkbox = document.getElementById("brightenCheckbox");
+            var images = document.getElementsByTagName("img");
+
+            for (var i = 0; i < images.length; i++) {
+                if (checkbox.checked) {
+                    if (!images[i].style.filter.includes("brightness")) {
+                        images[i].style.filter += " brightness(150%)";
+                    }
+                } else {
+                    images[i].style.filter = images[i].style.filter.replace("brightness(150%)", "");
+                }
+            }
+        }
+
+        function invertImages() {
+            var checkbox = document.getElementById("invertCheckbox");
+            var images = document.getElementsByTagName("img");
+
+            for (var i = 0; i < images.length; i++) {
+                if (checkbox.checked) {
+                    if (!images[i].style.filter.includes("invert")) {
+                        images[i].style.filter += " invert(100%)";
+                    }
+                } else {
+                    images[i].style.filter = images[i].style.filter.replace("invert(100%)", "");
+                }
+            }
+        }
+
+        //Listen for textbox changes and copy the text to the runes textbox
+
+        var textBox = document.getElementById("myTextBox");
+        var runeTextBox = document.getElementById("runeTextBox");
+
+        textBox.addEventListener("input", function () {
+            runeTextBox.value = convertToRunes(textBox.value);
+        });
+
+        //Copy the text my textbox to the rune textbox
+
+        function convertToRunes(text) {
+            var runes = {
+                "a": "a",
+                "b": "b",
+                "c": "c",
+                "d": "d",
+                "e": "e",
+                "f": "f",
+                "g": "g",
+                "h": "h",
+                "i": "i",
+                "j": "j",
+                "k": "k",
+                "l": "l",
+                "m": "m",
+                "n": "n",
+                "o": "o",
+                "p": "p",
+                "q": "q",
+                "r": "r",
+                "s": "s",
+                "t": "t",
+                "u": "u",
+                "v": "v",
+                "w": "w",
+                "x": "x",
+                "y": "y",
+                "z": "z",
+                "A": "A",
+                "B": "B",
+                "C": "C",
+                "D": "D",
+                "E": "E",
+                "F": "F",
+                "G": "G",
+                "H": "H",
+                "I": "I",
+                "J": "J",
+                "K": "K",
+                "L": "L",
+                "M": "M",
+                "N": "N",
+                "O": "O",
+                "P": "P",
+                "Q": "Q",
+                "R": "R",
+                "S": "S",
+                "T": "T",
+                "U": "U",
+                "V": "V",
+                "W": "W",
+                "X": "X",
+                "Y": "Y",
+                "Z": "Z",
+                "0": "0",
+                "1": "1",
+                "2": "2",
+                "3": "3",
+                "4": "4",
+                "5": "5",
+                "6": "6",
+                "7": "7",
+                "8": "8",
+                "9": "9",
+                ".": ".",
+                ",": ",",
+                " ": " "
+            };
+
+            var result = "";
+
+            for (var i = 0; i < text.length; i++) {
+                var letter = text[i].toLowerCase();
+                if (runes[letter]) {
+                    result += runes[letter];
+                } else {
+                    result += letter;
+                }
+            }
+
+            return result;
+        }
+
+        //convert to text
+
+        runeTextBox.addEventListener("input", function () {
+            textBox.value = convertToRunes(runeTextBox.value);
+        });
+
+
+        function convertToText(text) {
+            var runes = {
+                "a": "a",
+                "b": "b",
+                "c": "c",
+                "d": "d",
+                "e": "e",
+                "f": "f",
+                "g": "g",
+                "h": "h",
+                "i": "i",
+                "j": "j",
+                "k": "k",
+                "l": "l",
+                "m": "m",
+                "n": "n",
+                "o": "o",
+                "p": "p",
+                "q": "q",
+                "r": "r",
+                "s": "s",
+                "t": "t",
+                "u": "u",
+                "v": "v",
+                "w": "w",
+                "x": "x",
+                "y": "y",
+                "z": "z",
+                "A": "A",
+                "B": "B",
+                "C": "C",
+                "D": "D",
+                "E": "E",
+                "F": "F",
+                "G": "G",
+                "H": "H",
+                "I": "I",
+                "J": "J",
+                "K": "K",
+                "L": "L",
+                "M": "M",
+                "N": "N",
+                "O": "O",
+                "P": "P",
+                "Q": "Q",
+                "R": "R",
+                "S": "S",
+                "T": "T",
+                "U": "U",
+                "V": "V",
+                "W": "W",
+                "X": "X",
+                "Y": "Y",
+                "Z": "Z",
+                "0": "0",
+                "1": "1",
+                "2": "2",
+                "3": "3",
+                "4": "4",
+                "5": "5",
+                "6": "6",
+                "7": "7",
+                "8": "8",
+                "9": "9",
+                ".": ".",
+                ",": ",",
+                " ": " "
+            };
+
+            var result = "";
+
+            for (var i = 0; i < text.length; i++) {
+                var letter = text[i].toLowerCase();
+                if (runes[letter]) {
+                    result += runes[letter];
+                } else {
+                    result += letter;
+                }
+            }
+
+            return result;
+        }
+
+
+        
+    </script>
+</body>
+
+</html>
